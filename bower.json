@@ -1,0 +1,22 @@
+{
+  "name": "Files viewer",
+  "version": "1.0",
+  "description": "Test work for Egnyte",
+  "authors": [
+    "Sergey Ehorov"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "angular": "~1.3.15",
+    "angular-route": "~1.3.15"
+  }
+}

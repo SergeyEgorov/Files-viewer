@@ -1,0 +1,42 @@
+<h2>Home page</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td style="width: 30px;">
+                <input type="checkbox" ng-model="selectedAll" ng-click="checkAll()" />
+            </td>
+            <td>
+                <button class="btn btn-default" ng-click="rename()">Rename</button>
+                <button class="btn btn-default" ng-click="deleteFile()">Delete</button>
+                <button class="btn btn-default pull-right" ng-click="triggerNewFolder()">New folder</button>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+    <tr ng-show="addNewFolderMode">
+        <td>
+            <input type="checkbox" />
+        </td>
+        <td>
+            <form name="newFolderForm">
+                <input type="text" placeholder="New folder" ng-model="newFolder" required />
+                <button class="btn btn-default" ng-disabled="newFolderForm.$invalid" ng-click="addNewFolder()">Create</button>
+                <button class="btn btn-default" ng-click="triggerNewFolder()">Cancel</button>
+            </form>
+        </td>
+    </tr>
+    <tr ng-repeat="file in files">
+        <td>
+            <input type="checkbox" ng-model="file.selected" />
+        </td>
+        <td>
+            <span ng-if="!file.editMode">{{ file.name }}</span>
+            <div ng-if="file.editMode">
+                <input type="text" ng-model="file.name" />
+                <button class="btn btn-default" ng-disabled="!file.name.length" ng-click="saveRenamedFile($index)">Save</button>
+                <button class="btn btn-default" ng-click="cancelEditMode($index)">Cancel</button>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
